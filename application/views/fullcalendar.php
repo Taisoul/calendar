@@ -69,11 +69,9 @@ today = yyyy + '-' + mm + '-' + dd;
             document.getElementById("start_date").value = start;
             document.getElementById("end_time").value = end_time;
             document.getElementById("end_date").value = end_start;
-           if(start <today){
-                alert('the day has pass');
-           }else{
+
                   $('#addModal').modal();
-           }
+           
          
             },
           
@@ -161,19 +159,7 @@ today = yyyy + '-' + mm + '-' + dd;
         end = $("#end_date").val();
         start_time = $("#start_time").val();
         end_time = $("#end_time").val();
-          if(start <today){
-                alert('the day has pass');
-            }
-         else if(end<start){
-            alert('Wrong date');
-          }
-          else if( start==end &&start_time ==  end_time ){
-            alert('Wrong time');
-          }
-          else if(start==end && start_time > end_time){
-            alert('End time must more than start time!');
-          }
-          else{
+
             $.ajax({
             url:"<?php echo base_url(); ?>fullcalendar/insert",
                     type:"POST",
@@ -185,7 +171,7 @@ today = yyyy + '-' + mm + '-' + dd;
                     }
                   
             });
-          }
+          
     });
 
     $('#editsave').on("click",function () {
@@ -194,19 +180,7 @@ today = yyyy + '-' + mm + '-' + dd;
         end = $("#edit_end_date").val();
         start_time = $("#edit_start_time").val();
         end_time = $("#edit_end_time").val();
-        if(start <today){
-                alert('the day has pass');
-            }
-         else if(end<start){
-            alert('Wrong date');
-          }
-          else if( start==end &&start_time ==  end_time ){
-            alert('Wrong time');
-          }
-          else if(start==end && start_time > end_time){
-            alert('End time must more than start time!');
-          }
-          else{
+
             $.ajax({
             url:"<?php echo base_url(); ?>fullcalendar/edit_event",
                     type:"POST",
@@ -217,7 +191,7 @@ today = yyyy + '-' + mm + '-' + dd;
                         $('#editModal').modal('hide');
                     }
             });
-          }
+          
     });
 
     $('#delete').on("click", function () {
