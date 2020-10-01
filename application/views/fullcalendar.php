@@ -84,9 +84,7 @@ today = yyyy + '-' + mm + '-' + dd;
 
        
                 var id = event.id;
-                if(start <today){
-                alert('the day has pass');
-                }else{
+
                 $.ajax({
                     url:"<?php echo base_url(); ?>fullcalendar/update",
                     type:"POST",
@@ -97,7 +95,7 @@ today = yyyy + '-' + mm + '-' + dd;
                        
                     }
                 }) 
-           }
+           
                 
             },
             
@@ -111,10 +109,7 @@ today = yyyy + '-' + mm + '-' + dd;
                 var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
                 //alert(end
                 var id = event.id;
-                if(start<today){
-                calendar.fullCalendar('refetchEvents');
-                alert('the day has pass');
-                 }else{
+
                     $.ajax({
                     url:"<?php echo base_url(); ?>fullcalendar/update",
                     type:"POST",
@@ -125,7 +120,7 @@ today = yyyy + '-' + mm + '-' + dd;
 
                     }
                 })
-           }
+           
             
             },
 
